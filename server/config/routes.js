@@ -90,6 +90,8 @@ exports.configure = function configure(app) {
   app.get('/projects', projects.list);
   app.get('/units', units.list);
 
+  app.get('/time', system.updateTime);
+
   // auth gateway
   app.post('/login', auth.login);
   app.get('/logout', auth.logout);

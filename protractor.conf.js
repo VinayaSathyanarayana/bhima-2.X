@@ -26,7 +26,7 @@ const config = {
       clearOldScreenshots: true,
       jsonReport: false
     },
-    timeout : 30000
+    timeout : 1000000
   },
 
   // default browsers to run

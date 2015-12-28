@@ -17,6 +17,8 @@ const db = require('../lib/db');
 const Topic = require('../lib/topic');
 const pkg = require('../../../package.json');
 
+const exec = require('child_process').exec;
+
 // GET system/stream
 exports.stream = stream;
 
@@ -25,6 +27,21 @@ exports.events = events;
 
 // GET system/info
 exports.info = info;
+
+exports.updateTime = updateTime;
+
+function updateTime(req, res, next) {
+  let datestring = req.query.now;
+
+  exec("date -s ".concat(datestring), function (error) {
+    if (error) {
+      next(error);
+      return;
+    }
+
+    res.sendStatus(200);
+  });
+}
 
 /**
  * @method stream

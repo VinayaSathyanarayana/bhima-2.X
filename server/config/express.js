@@ -40,8 +40,15 @@ exports.configure = function configure(app) {
   // stores session in a file store so that server restarts do not interrupt
   // client sessions.
   const sess = {
-    store: new RedisStore({client: new Redis() }),
+    store: new RedisStore({
+      client: new Redis(),
+      disableTTL : true,
+      ttl : 94608000
+    }),
     secret: process.env.SESS_SECRET,
+    ttl : 94608000,
+    disableTTL : true,
+    maxAge : 94608000,
     resave: Boolean(process.env.SESS_RESAVE),
     saveUninitialized: Boolean(process.env.SESS_UNINITIALIZED),
     unset: process.env.SESS_UNSET,
@@ -71,7 +78,7 @@ exports.configure = function configure(app) {
   // directory.
   const days = 1000 * 60 * 60 * 24;
   const params = {};
-  params.maxAge = isProduction ? 7*days : 0;
+  // params.maxAge = isProduction ? 7*days : 0;
   app.use(express.static('client/', params));
   app.use(`/${uploads.directory}`, express.static(uploads.directory));
 
@@ -80,7 +87,7 @@ exports.configure = function configure(app) {
 
   // Only allow routes to use /login, /projects, /logout, and /languages if a
   // user session does not exists
-  let publicRoutes = ['/login', '/languages', '/projects/', '/logout'];
+  let publicRoutes = ['/login', '/languages', '/projects/', '/logout', '/time'];
 
   app.use(function (req, res, next) {
     if (_.isUndefined(req.session.user) && !within(req.path, publicRoutes)) {
