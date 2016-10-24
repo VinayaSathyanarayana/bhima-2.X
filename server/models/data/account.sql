@@ -139,4 +139,5 @@ INSERT INTO `account` (`id`, `type_id`, `enterprise_id`, `number`, `label`, `par
 (135, 4, 1, 1951, 'Provisions pour impôts *', 129, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL),
 (136, 4, 1, 1961, 'Provisions pour pensions et obligations similaires *', 130, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL),
 (137, 4, 1, 1971, 'Provisions pour charges à repartir sur plusieurs exercices *', 131, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL),
-(138, 4, 1, 1981, 'Autres provisions financières pour risques et charges *', 132, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL);
+(138, 4, 1, 1981, 'Autres provisions financières pour risques et charges *', 132, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL)
+;
