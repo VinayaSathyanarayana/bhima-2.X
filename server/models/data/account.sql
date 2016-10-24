@@ -5,6 +5,8 @@
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+SET @INC := 0;
+
 INSERT INTO `account` (`id`, `type_id`, `enterprise_id`, `number`, `label`, `parent`, `locked`, `cc_id`, `pc_id`, `created`, `classe`, `is_asset`, `reference_id`, `is_brut_link`, `is_title`, `is_charge`) VALUES
 (1, 4, 1, 1, 'CLASSE 1 : COMPTES DE RESSOURCES DURABLES', 0, 0, NULL, NULL, '2016-10-22 15:37:09', NULL, NULL, NULL, NULL, 0, NULL),
 (2, 4, 1, 2, 'CLASSE 2 : COMPTES D\'ACTIFS IMMOBILISES', 0, 0, NULL, NULL, '2016-10-22 15:39:01', NULL, NULL, NULL, NULL, 0, NULL),
@@ -139,4 +141,121 @@ INSERT INTO `account` (`id`, `type_id`, `enterprise_id`, `number`, `label`, `par
 (135, 4, 1, 1951, 'Provisions pour impôts *', 129, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL),
 (136, 4, 1, 1961, 'Provisions pour pensions et obligations similaires *', 130, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL),
 (137, 4, 1, 1971, 'Provisions pour charges à repartir sur plusieurs exercices *', 131, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL),
-(138, 4, 1, 1981, 'Autres provisions financières pour risques et charges *', 132, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL);
+(138, 4, 1, 1981, 'Autres provisions financières pour risques et charges *', 132, 0, NULL, NULL, '2016-10-22 22:37:09', NULL, NULL, NULL, NULL, 0, NULL)
+;
+
+INSERT INTO `account` (`id`, `type_id`, `enterprise_id`, `number`, `label`, `parent`, `locked`, `cc_id`, `pc_id`, `created`, `classe`, `is_asset`, `reference_id`, `is_brut_link`, `is_title`, `is_charge`) VALUES
+
+-- CLASS 2 
+(150, 3, 1, 22321000, 'Batiment Hopital', 20, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(151, 3, 1, 23131000, 'Batiment Hopital *', 21, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(152, 3, 1, 24480040, 'Mobiliers Hopital', 21, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(156, 3, 1, 28310010, 'Amortissement Batiments', 24, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+-- CLASS 3 
+(160, 3, 1, 311, 'MARCHANDISES A', 26, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(161, 3, 1, 3111, 'Medicaments', 160, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(162, 2, 1, 31110010, 'Medicaments en comprimes *', 161, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(163, 2, 1, 31110011, 'Medicaments en Sirop *', 161, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+-- CLASS 4 
+(170, 4, 1, 4011, 'Fournisseurs', 32, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(171, 3, 1, 40111000, 'SNEL', 170, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(172, 3, 1, 40111001, 'REGIDESO', 170, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+(173, 4, 1, 4111, 'Client (Groupe Debiteur)', 32, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(174, 3, 1, 41111010, 'CHURCH', 173, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(175, 3, 1, 41111011, 'NGO', 173, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(176, 3, 1, 41111012, 'CASH PAYMENT CLIENT', 173, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(177, 3, 1, 41111013, 'GUEST HOUSE', 173, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+(178, 4, 1, 422, 'REMUNERATION DUE', 34, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(179, 3, 1, 42210010, 'Salaires à payer', 178, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+-- CLASS 5 
+(180, 3, 1, 521, 'Banques locales', 41, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(181, 3, 1, 5211, 'Banques en Franc congolais', 180, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(182, 2, 1, 52111010, 'BCDC CDF', 181, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(183, 3, 1, 5212, 'Banques locales en Devises', 180, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(184, 2, 1, 52121010, 'BCDC USD', 183, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(185, 3, 1, 571, 'Caisse HOPITAL', 44, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(186, 3, 1, 5711, 'Caisse en franc congolais', 185, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(187, 2, 1, 57110010, 'Caisse Principale CDF', 186, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(188, 2, 1, 57110011, 'Caisse Auxiliaire CDF', 187, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(189, 3, 1, 5712, 'Caisse en devises', 185, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(190, 2, 1, 57120010, 'Caisse Principale USD', 189, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(191, 2, 1, 57120011, 'Caisse Auxiliaire USD', 189, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(192, 3, 1, 585, 'Virement des fonds', 45, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(193, 3, 1, 5851, 'Virement des fonds *', 192, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(194, 2, 1, 58511010, 'Virement des fonds Caisse Auxiliaire - Caisse Principale USD', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(195, 2, 1, 58511011, 'Virement des fonds Caisse Principale - Caisse Auxiliaire USD *', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(196, 2, 1, 58511012, 'Virement des fonds Banque-Caisse Principale USD', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+-- CLASS 6 
+(200, 4, 1, 601, 'ACHATS DE MARCHANDISES', 47, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(201, 3, 1, 60111010, 'Achat Médicaments en comprimés', 200, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(202, 3, 1, 60111011, 'Achat Médicaments en Sirop', 200, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(203, 3, 1, 60111012, 'Achat Médicaments en crème', 200, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(204, 3, 1, 60111013, 'Achat Médicaments en Poudre et Capsul', 200, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(205, 3, 1, 60111014, 'Achat Injectables', 200, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(206, 3, 1, 60111015, 'Achat Produit  de Perfusion', 200, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(207, 3, 1, 60111016, 'Achat Produits Ophtamologiques', 200, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+(208, 4, 1, 603, 'VARIATIONS DES STOCKS DE BIENS ACHETÉS', 47, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(209, 3, 1, 60310010, 'Médicaments en comprimés', 208, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(210, 3, 1, 60310011, 'Médicaments en Sirop', 208, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(211, 3, 1, 60310012, 'Achat Médicaments en crème', 208, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(212, 3, 1, 60310013, 'Achat Médicaments en Poudre et Capsul', 208, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(213, 3, 1, 60310014, 'Achat Injectables', 208, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(214, 3, 1, 60310015, 'Achat Produit  de Perfusion', 208, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(215, 3, 1, 60310016, 'Achat Produits Ophtamologiques', 208, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+(216, 4, 1, 605, 'AUTRES ACHATS', 47, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(217, 3, 1, 60511010, 'Eau', 216, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(218, 3, 1, 60521010, 'Electricité', 216, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL), 
+
+(219, 4, 1, 661, 'RÉMUNÉRATIONS DIRECTES VERSÉES AU PERSONNEL NATIONAL', 53, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(220, 3, 1, 66110011, 'Remunération Personnel', 219, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+(221, 4, 1, 676, 'PERTES DE CHANGE', 54, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(222, 3, 1, 67611010, 'Différences de change', 221, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+-- CLASS 7 
+(240, 3, 1, 701, 'VENTES DE MARCHANDISES', 57, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(241, 3, 1, 7011, 'Vente des medicaments dans la Region Ohada', 240, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(242, 1, 1, 70111010, 'Vente Medicaments en comprimes', 241, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(243, 1, 1, 70111011, 'Vente Medicaments en Sirop', 241, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(244, 3, 1, 706, 'SERVICES VENDUS', 57, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(245, 3, 1, 7061, 'Services vendus dans la Region ohada', 244, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(246, 1, 1, 70611010, 'Consultations', 245, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(247, 1, 1, 70611011, 'Optique', 245, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(248, 1, 1, 70611012, 'Hospitalisation', 245, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(249, 1, 1, 70611017, 'Administration', 245, 0, NULL, 1, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(250, 1, 1, 70611036, 'URGENCES', 245, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(251, 3, 1, 754, 'PRODUITS DES CESSIONS D IMMOBILISATIONS', 61, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(252, 1, 1, 75411010, 'Produits des Cessions d Immobilisations *', 251, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(253, 3, 1, 758, 'PRODUITS DIVERS', 61, 0, NULL, NULL, '2016-10-23 17:05:34', 7, 0, NULL, NULL, 0, 0),
+(254, 3, 1, 7581, 'Jetons de presence et autres remunerations d administrateurs', 253, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(255, 1, 1, 75811010, 'Jeton de presence', 254, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(256, 1, 1, 75811011, 'Autres remunerations d administrateurs', 254, 0, NULL, 1, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(257, 3, 1, 7582, 'Indemnites d?assurances recues', 253, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(258, 1, 1, 75821010, 'Indemnites d\'assurances recues', 257, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(259, 3, 1, 7588, 'Autres Produits divers', 253, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(260, 1, 1, 75881010, 'Autres revenus', 259, 0, NULL, 1, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(261, 3, 1, 771, 'INTERETS DE PRETS', 62, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(262, 1, 1, 77111010, 'Interets de Prets *', 261, 0, NULL, 1, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(264, 3, 1, 773, 'ESCOMPTES OBTENUS', 62, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(265, 1, 1, 77311010, 'Escomptes obtenus *', 264, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(266, 3, 1, 776, 'GAINS DE CHANGE', 62, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(267, 1, 1, 77611010, 'Gain de change *', 266, 0, NULL, 1, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
+-- CLASS 8 
+(280, 3, 1, 81111010, 'Compte Immobilisations incorporelles', 65, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(281, 3, 1, 81211010, 'Compte Immobilisations corporelles', 65, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(282, 3, 1, 81611010, 'Compte Immobilisations financières', 65, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL)
+
+-- handle duplicated label 
+ON DUPLICATE KEY UPDATE label = CONCAT(label, (@INC := @INC + 1)) 
+;
+
+

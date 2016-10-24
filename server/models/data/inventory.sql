@@ -6,6 +6,52 @@
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+-- Contenu de la table `inventory_group`
+--
+
+INSERT INTO `inventory_group` (`uuid`, `name`, `code`, `sales_account`, `cogs_account`, `stock_account`, `donation_account`) VALUES
+(0x08248ec3291c4eb8928cc96fa2ba40aa, 'Endodontie', '1', 0, NULL, NULL, NULL),
+(0x08bfd50dc710407c973500f436769ee4, 'Produit dentaire', '2', 0, NULL, NULL, NULL),
+(0x0944d1daf08645f287c512614cb50e07, 'Lunettes', '3', 0, NULL, NULL, NULL),
+(0x0b156b95f8874cfbbd09e729e3e3642a, 'Sondes', '4', 0, NULL, NULL, NULL),
+(0x124b8a66c0e347ab8e0a19c0019b6c43, 'Consultation', '5', 0, NULL, NULL, NULL),
+(0x1c9937a33d2d48a882425941d3cca250, 'Medicaments en Poudre et Capsul', '6', 0, NULL, NULL, NULL),
+(0x23e46f3b79824ec496ec3e0c76ee7f62, 'Suppositoires', '7', 0, NULL, NULL, NULL),
+(0x26a06810c8684edc97200cb3ee20f8fa, 'Optique', '8', 0, NULL, NULL, NULL),
+(0x294b756de054479a88b2d39df85a6de1, 'Visite speciale', '9', 0, NULL, NULL, NULL),
+(0x2afc3b17dc1b4e5bbc8b5651486e4c87, 'Ophtamologie', '10', 0, NULL, NULL, NULL),
+(0x2b0a1f2899f44d38aff2e09ef5aaf9d8, 'Hospitalization', '11', 0, NULL, NULL, NULL),
+(0x30b1e2500355446991c8f0950206cca3, 'service preventif', '12', 0, NULL, NULL, NULL),
+(0x45442fa27932490b867bafa853b864d8, 'Produits Radio', '13', 0, NULL, NULL, NULL),
+(0x4b4dbc73bd18466aa8c4317af2c0a350, 'Petite chirurgie sutures', '14', 0, NULL, NULL, NULL),
+(0x5bf8aae6225842aebec8aa852ff28108, 'Fourniture nursing(bistouris,sparadraps,...)', '15', 0, NULL, NULL, NULL),
+(0x621dbba39f714d609cde727f87258260, 'Fournitures Papeterie', '16', 0, NULL, NULL, NULL),
+(0x6d921ee8771d4471928fb098bba19fbf, 'IMA Subsidy', '17', 0, NULL, NULL, NULL),
+(0x7a7b164e443d4229bc846c34007d8c04, 'Parodontie', '18', 0, NULL, NULL, NULL),
+(0x827229e0feae428493510e68bd489915, 'Fournitures Electriques et Soudures', '19', 0, NULL, NULL, NULL),
+(0x8337b0ed64a84b84b72196bb33e8d05a, 'Medicaments en Sirop', '20', 0, NULL, NULL, NULL),
+(0x8d8ae9d7bafb482cafd27c6f23b361c2, 'Platre', '21', 0, NULL, NULL, NULL),
+(0x8eddf5f5c1e24f15bd01530e6baca071, 'Chirurgie', '22', 0, NULL, NULL, NULL),
+(0x8f7ad32b1c5944c88c19d9727896c218, 'Labo', '23', 0, NULL, NULL, NULL),
+(0x92efe5164e99411282e0e86b30bfbc12, 'Administration', '24', 0, NULL, NULL, NULL),
+(0x95c6d2bad6034c7a8ae24c24122277ad, 'Urgence', '25', 0, NULL, NULL, NULL),
+(0x9616cddfd20447bc9871be0d8ddfc5ad, 'Accouchement', '26', 0, NULL, NULL, NULL),
+(0xa219429f8da844608c3f01f81975da25, 'produit entretien nettoyage020', '27', 0, NULL, NULL, NULL),
+(0xa5225915ed054e61b5164c52ef97a271, 'Reactifs Labo', '28', 0, NULL, NULL, NULL),
+(0xb2c7ab4c575f45e1932ae458422ef84a, 'Equipements medicaux (gants,blouses, masques...)', '29', 0, NULL, NULL, NULL),
+(0xb554ebf97a0f4fd2bddef902ebd96fee, 'Radiologie', '30', 0, NULL, NULL, NULL),
+(0xbaa8ea294623445b9d4e04c76aaecf0f, 'Soins dentaire', '31', 0, NULL, NULL, NULL),
+(0xc13da749a9cd4894b39bbe0c26919304, 'Injectable', '32', 0, NULL, NULL, NULL),
+(0xc673e6d2a1fd4bcaaa0e92425fc099bb, 'Orl', '33', 0, NULL, NULL, NULL),
+(0xd66a051867ce475cb1240bb78a65533f, 'Medicaments en comprimes', '34', 0, NULL, NULL, NULL),
+(0xd9f8daaa22de4a33801e4c07317b1983, 'Externe', '35', 0, NULL, NULL, NULL),
+(0xe4941f6527224fceb56488068e2d0795, 'Extration dentaire', '36', 0, NULL, NULL, NULL),
+(0xe81eaa93e0bd4f9e893fb0d826bf2732, 'obturation provisoire', '37', 0, NULL, NULL, NULL),
+(0xf0d2be9a39bc4a6cb5cbd56b7b25852e, 'Orthodontie', '38', 0, NULL, NULL, NULL),
+(0xf24e732567a848f1aeb0b7c4c89f2884, 'Perfusion', '39', 0, NULL, NULL, NULL);
+
+
+--
 -- Contenu de la table `inventory`
 --
 
@@ -1044,48 +1090,3 @@ INSERT INTO `inventory` (`enterprise_id`, `uuid`, `code`, `text`, `price`, `grou
 (1, 0xffa302b021f14f8fb9714d416dbff0e6, '003005', 'Capillaire tube', '0.0180', 0x8f7ad32b1c5944c88c19d9727896c218, 13, 0, 0, 0, 0, 0, 1, 1, '2016-10-23 02:35:08'),
 (1, 0xffaa4bf2a6a0426580aad103da869970, '160029', 'Grand bassin plastic', '6.4516', 0xa219429f8da844608c3f01f81975da25, 13, 0, 0, 0, 0, 0, 1, 1, '2016-10-23 02:35:08'),
 (1, 0xfffbc00cbd54487797850ace48d27ff8, '030013', 'Soins médicaux avec urgence', '9.7500', 0x2b0a1f2899f44d38aff2e09ef5aaf9d8, 2, 0, 0, 1, 100000000, 0, 1, 1, '2016-10-23 02:35:08');
-
---
--- Contenu de la table `inventory_group`
---
-
-INSERT INTO `inventory_group` (`uuid`, `name`, `code`, `sales_account`, `cogs_account`, `stock_account`, `donation_account`) VALUES
-(0x08248ec3291c4eb8928cc96fa2ba40aa, 'Endodontie', '1', 0, NULL, NULL, NULL),
-(0x08bfd50dc710407c973500f436769ee4, 'Produit dentaire', '2', 0, NULL, NULL, NULL),
-(0x0944d1daf08645f287c512614cb50e07, 'Lunettes', '3', 0, NULL, NULL, NULL),
-(0x0b156b95f8874cfbbd09e729e3e3642a, 'Sondes', '4', 0, NULL, NULL, NULL),
-(0x124b8a66c0e347ab8e0a19c0019b6c43, 'Consultation', '5', 0, NULL, NULL, NULL),
-(0x1c9937a33d2d48a882425941d3cca250, 'Medicaments en Poudre et Capsul', '6', 0, NULL, NULL, NULL),
-(0x23e46f3b79824ec496ec3e0c76ee7f62, 'Suppositoires', '7', 0, NULL, NULL, NULL),
-(0x26a06810c8684edc97200cb3ee20f8fa, 'Optique', '8', 0, NULL, NULL, NULL),
-(0x294b756de054479a88b2d39df85a6de1, 'Visite speciale', '9', 0, NULL, NULL, NULL),
-(0x2afc3b17dc1b4e5bbc8b5651486e4c87, 'Ophtamologie', '10', 0, NULL, NULL, NULL),
-(0x2b0a1f2899f44d38aff2e09ef5aaf9d8, 'Hospitalization', '11', 0, NULL, NULL, NULL),
-(0x30b1e2500355446991c8f0950206cca3, 'service preventif', '12', 0, NULL, NULL, NULL),
-(0x45442fa27932490b867bafa853b864d8, 'Produits Radio', '13', 0, NULL, NULL, NULL),
-(0x4b4dbc73bd18466aa8c4317af2c0a350, 'Petite chirurgie sutures', '14', 0, NULL, NULL, NULL),
-(0x5bf8aae6225842aebec8aa852ff28108, 'Fourniture nursing(bistouris,sparadraps,...)', '15', 0, NULL, NULL, NULL),
-(0x621dbba39f714d609cde727f87258260, 'Fournitures Papeterie', '16', 0, NULL, NULL, NULL),
-(0x6d921ee8771d4471928fb098bba19fbf, 'IMA Subsidy', '17', 0, NULL, NULL, NULL),
-(0x7a7b164e443d4229bc846c34007d8c04, 'Parodontie', '18', 0, NULL, NULL, NULL),
-(0x827229e0feae428493510e68bd489915, 'Fournitures Electriques et Soudures', '19', 0, NULL, NULL, NULL),
-(0x8337b0ed64a84b84b72196bb33e8d05a, 'Medicaments en Sirop', '20', 0, NULL, NULL, NULL),
-(0x8d8ae9d7bafb482cafd27c6f23b361c2, 'Platre', '21', 0, NULL, NULL, NULL),
-(0x8eddf5f5c1e24f15bd01530e6baca071, 'Chirurgie', '22', 0, NULL, NULL, NULL),
-(0x8f7ad32b1c5944c88c19d9727896c218, 'Labo', '23', 0, NULL, NULL, NULL),
-(0x92efe5164e99411282e0e86b30bfbc12, 'Administration', '24', 0, NULL, NULL, NULL),
-(0x95c6d2bad6034c7a8ae24c24122277ad, 'Urgence', '25', 0, NULL, NULL, NULL),
-(0x9616cddfd20447bc9871be0d8ddfc5ad, 'Accouchement', '26', 0, NULL, NULL, NULL),
-(0xa219429f8da844608c3f01f81975da25, 'produit entretien nettoyage020', '27', 0, NULL, NULL, NULL),
-(0xa5225915ed054e61b5164c52ef97a271, 'Reactifs Labo', '28', 0, NULL, NULL, NULL),
-(0xb2c7ab4c575f45e1932ae458422ef84a, 'Equipements medicaux (gants,blouses, masques...)', '29', 0, NULL, NULL, NULL),
-(0xb554ebf97a0f4fd2bddef902ebd96fee, 'Radiologie', '30', 0, NULL, NULL, NULL),
-(0xbaa8ea294623445b9d4e04c76aaecf0f, 'Soins dentaire', '31', 0, NULL, NULL, NULL),
-(0xc13da749a9cd4894b39bbe0c26919304, 'Injectable', '32', 0, NULL, NULL, NULL),
-(0xc673e6d2a1fd4bcaaa0e92425fc099bb, 'Orl', '33', 0, NULL, NULL, NULL),
-(0xd66a051867ce475cb1240bb78a65533f, 'Medicaments en comprimes', '34', 0, NULL, NULL, NULL),
-(0xd9f8daaa22de4a33801e4c07317b1983, 'Externe', '35', 0, NULL, NULL, NULL),
-(0xe4941f6527224fceb56488068e2d0795, 'Extration dentaire', '36', 0, NULL, NULL, NULL),
-(0xe81eaa93e0bd4f9e893fb0d826bf2732, 'obturation provisoire', '37', 0, NULL, NULL, NULL),
-(0xf0d2be9a39bc4a6cb5cbd56b7b25852e, 'Orthodontie', '38', 0, NULL, NULL, NULL),
-(0xf24e732567a848f1aeb0b7c4c89f2884, 'Perfusion', '39', 0, NULL, NULL, NULL);
