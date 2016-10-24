@@ -3,6 +3,14 @@ SET names 'utf8';
 SET character_set_database = 'utf8';
 SET collation_database = 'utf8_unicode_ci';
 
+-- Fiscal Year 2016
+SET @fiscalYear2016 = 0;
+CALL CreateFiscalYear(1, NULL, 1, 'Test Fiscal Year 2016', 12, DATE('2016-01-01'), DATE('2016-12-31'), 'Note for 2016', @fiscalYear2016);
+
+-- Fiscal Year 2017
+SET @fiscalYear2017 = 0;
+CALL CreateFiscalYear(1, @fiscalYear2016, 1, 'Test Fiscal Year 2017', 12, DATE('2017-01-01'), DATE('2017-12-31'), 'Note for 2017', @fiscalYear2017);
+
 -- units
 INSERT INTO unit VALUES
   (0,   'Root','TREE.ROOT','The unseen root node',NULL,'/partials/index.html','/root'),
@@ -77,10 +85,15 @@ INSERT INTO `village` VALUES (HUID('1f162a10-9f67-4788-9eff-c1fea42fcc9b'),'KELE
 INSERT INTO `enterprise` VALUES (1,'Enterprise','ESE','243 81 00 00 000','info@enterprise.org',HUID('1f162a10-9f67-4788-9eff-c1fea42fcc9b'),NULL,2,NULL, NULL, NULL);
 
 -- Project
-INSERT INTO `project` VALUES (1,'Hospital','HSP',1,NULL,0),(2,'Clinique','CLQ',1,NULL,0);
+INSERT INTO `project` VALUES (1,'Hospital','HSP',1,NULL,0),(2,'Clinique','CLQ',1,NULL,0), (3,'Guest House','GHO',1,NULL,0);
 
 -- create super user
-INSERT INTO `user` VALUES (1, 'superuser', PASSWORD('superuser'), 'Super User', NULL, 0, 0, NULL);
+INSERT INTO `user` VALUES 
+  (1, 'admin', PASSWORD('admin'), 'Administrator', NULL, 0, 0, NULL),
+  (2, 'receptionist', PASSWORD('receptionist'), 'Receptionist', NULL, 0, 0, NULL),
+  (3, 'doctor', PASSWORD('doctor'), 'Doctor', NULL, 0, 0, NULL),
+  (4, 'cashier', PASSWORD('cashier'), 'Cashier', NULL, 0, 0, NULL),
+  (5, 'accountant', PASSWORD('accountant'), 'Accountant', NULL, 0, 0, NULL);
 
 -- super user permissions to admin user permissions
 INSERT INTO `permission` (unit_id, user_id) VALUES (1,1), (4,1), (2,1);
@@ -89,7 +102,10 @@ INSERT INTO `permission` (unit_id, user_id) VALUES (1,1), (4,1), (2,1);
 INSERT INTO `project_permission` VALUES (1,1,1),(2,1,2);
 
 -- enterprise cashboxes
-INSERT INTO `cash_box` (id, label, project_id, is_auxiliary) VALUES (1,'Hospital Principal Cashbox',1,0), (2,'Hospital Auxiliary Cashbox',1,1), (3,'Clinique Auxiliary Cashbox',1,1);
+INSERT INTO `cash_box` (id, label, project_id, is_auxiliary) VALUES 
+  (1,'Principal Cashbox',1,0), 
+  (2,'First Auxiliary Cashbox',1,1), 
+  (3,'Second Auxiliary Cashbox',1,1);
 
 -- inventory additional info
 INSERT INTO `inventory_type` VALUES (1,'Article'),(2,'Assembly'),(3,'Service');
