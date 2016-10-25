@@ -116,36 +116,6 @@
                     </div>
                   </div>
 
-                  <!-- registration -->
-                  <div class="form-group"
-                    ng-class="{'has-error' : DetailForm.dob.$invalid && PatientRegistrationForm.$submitted}">
-                    <label class="col-md-3 control-label">{{ "FORM.LABELS.DATE" | translate }}</label>
-                    <div class="col-md-9">
-                      <div class="input-group">
-                        <input
-                        name="dor"
-                        type="text"
-                        class="form-control"
-                        ng-model="PatientRegCtrl.medical.registration_date"
-                        uib-datepicker-popup="dd-MM-yyyy"
-                        datepicker-options="PatientRegCtrl.datepickerOptions"
-                        is-open="PatientRegCtrl.datePopupIsOpen"
-                        show-button-bar="false"
-                        bh-date-validator="PatientRegCtrl.datepickerOptions"
-                        required>
-                        <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" ng-click="PatientRegCtrl.datePopupIsOpen = !PatientRegCtrl.datePopupIsOpen">
-                            <i class="fa fa-calendar-plus-o"></i>
-                          </button>
-                        </span>
-                      </div>
-
-                      <div class="help-block" ng-messages="DetailForm.dor.$error" data-date-error ng-if="PatientRegistrationForm.$submitted && DetailForm.dor.$invalid">
-                        <div ng-messages-include="partials/templates/dates.messages.tmpl.html"></div>
-                      </div>
-                    </div>
-                  </div>
-
                   <!-- Gender -->
                   <div id="gender" class="form-group"
                     ng-class="{'has-error' : DetailForm.genderOptions.$invalid && PatientRegistrationForm.$submitted}">
@@ -225,6 +195,17 @@
                       </div>
                     </div>
                   </div>
+
+                  <!-- separate registration date  -->
+                  <hr>
+
+                  <!-- registration -->
+                  <bh-date-editor
+                    date-value="PatientRegCtrl.medical.registration_date"
+                    validation-trigger="DetailForm.$submitted"
+                    max-date="SimpleVoucherCtrl.timestamp">
+                  </bh-date-editor>
+                  
                 </div>
 
               <div class="panel-footer text-right">

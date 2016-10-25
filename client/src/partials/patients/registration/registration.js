@@ -20,6 +20,8 @@ PatientRegistrationController.$inject = [
 function PatientRegistrationController(Patients, Debtors, Session, util, Notify, Receipts, ScrollTo, bhConstants) {
   var vm = this;
 
+  vm.medical = { registration_date: new Date() };
+
   vm.submit = submit;
   vm.enableFullDate = enableFullDate;
   vm.calculateYOB = calculateYOB;

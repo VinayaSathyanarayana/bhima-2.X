@@ -4,6 +4,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const _ = require('lodash');
+const moment = require('moment');
 const FU = require('../../shared/FormUtils');
 const components = require('../../shared/components');
 const helpers = require('../../shared/helpers');
@@ -17,26 +18,25 @@ describe.only('Patient Registration', () => {
   const path = '#/patients/register';
   beforeEach(() => helpers.navigate(path));
 
+  const TOTAL_ITEMS = 2000;
+
   let inc = 0;
-  const TOTAL_ITEMS = 10;
+  let date = new Date;
 
-  dbPatients = _.take(dbPatients, TOTAL_ITEMS);
+  let patients = _.take(dbPatients, TOTAL_ITEMS);
 
-  dbPatients.forEach(item => {
+  patients.forEach((item, index) => {
 
-    it(`Registers ${dbPatients.length} patients`, done => {
+    it(`Register patient ${index} of ${patients.length}`, done => {
 
       // patient name
       FU.input('PatientRegCtrl.medical.display_name', item.name);
 
 
       // hospital number and yob
-      item.hospital_no = item.hospital_no ? item.hospital_no : 'D00' + inc++;
+      item.hospital_no = item.hospital_no && item.hospital_no !== '0' ? item.hospital_no : 'D00' + inc++;
       FU.input('PatientRegCtrl.medical.hospital_no', item.hospital_no);
       FU.input('PatientRegCtrl.yob', item.yob);
-
-      // registration date
-      // FU.input('PatientRegCtrl.medical.registration_date', item.hospital_no);
 
 
       // set the gender of the patient
@@ -52,7 +52,11 @@ describe.only('Patient Registration', () => {
       components.locationSelect.set(helpers.data.locations, 'current-location-id');
 
       // set the debtor group
-      FU.uiSelect('PatientRegCtrl.finance.debtor_group_uuid', 'Patient Payant Cash');
+      let debtorGroup = patientDebtorGroup(index);
+      FU.uiSelect('PatientRegCtrl.finance.debtor_group_uuid', debtorGroup);
+
+      item.registration_date = patientRegistrationDate(index);
+      components.dateEditor.set(item.registration_date);
 
       // submit the patient registration form
       FU.buttons.submit();
@@ -61,5 +65,19 @@ describe.only('Patient Registration', () => {
     });
 
   });
+
+  function patientRegistrationDate(count) {
+    let registrationDate = moment(date).add(count, 'day');
+    // date.setDate(date.getDate() + count);
+    return registrationDate.toDate();
+  }
+
+  function patientDebtorGroup(count) {
+    if (count <= 5) { return 'Guest House'; }
+    else if (count <= 20) { return 'Organisme Non Gouvernemental'; }
+    else if (count <= 40) { return 'REGIDESO'; }
+    else if (count <= 60) { return 'SNEL'; }
+    else { return 'Patient Payant Cash'; }
+  }
 
 });
