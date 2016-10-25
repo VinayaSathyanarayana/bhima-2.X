@@ -50,7 +50,7 @@ function PatientRegistrationController(Patients, Debtors, Session, util, Notify,
 
     return Patients.create(vm.medical, vm.finance)
       .then(function (confirmation) {
-        Receipts.patient(confirmation.uuid, true);
+        // Receipts.patient(confirmation.uuid, true);
 
         // reset form state
         RegistrationForm.$setPristine();

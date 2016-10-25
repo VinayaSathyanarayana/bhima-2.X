@@ -3,6 +3,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const _ = require('lodash');
 const FU = require('../../shared/FormUtils');
 const components = require('../../shared/components');
 const helpers = require('../../shared/helpers');
@@ -17,6 +18,9 @@ describe.only('Patient Registration', () => {
   beforeEach(() => helpers.navigate(path));
 
   let inc = 0;
+  const TOTAL_ITEMS = 10;
+
+  dbPatients = _.take(dbPatients, TOTAL_ITEMS);
 
   dbPatients.forEach(item => {
 
@@ -30,6 +34,9 @@ describe.only('Patient Registration', () => {
       item.hospital_no = item.hospital_no ? item.hospital_no : 'D00' + inc++;
       FU.input('PatientRegCtrl.medical.hospital_no', item.hospital_no);
       FU.input('PatientRegCtrl.yob', item.yob);
+
+      // registration date
+      // FU.input('PatientRegCtrl.medical.registration_date', item.hospital_no);
 
 
       // set the gender of the patient
@@ -49,7 +56,6 @@ describe.only('Patient Registration', () => {
 
       // submit the patient registration form
       FU.buttons.submit();
-      FU.exists(by.id('receipt-confirm-created'), true);
 
       done();
     });
