@@ -188,8 +188,12 @@ INSERT INTO `account` (`id`, `type_id`, `enterprise_id`, `number`, `label`, `par
 (192, 3, 1, 585, 'Virement des fonds', 45, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
 (193, 3, 1, 5851, 'Virement des fonds *', 192, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
 (194, 2, 1, 58511010, 'Virement des fonds Caisse Auxiliaire - Caisse Principale USD', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
-(195, 2, 1, 58511011, 'Virement des fonds Caisse Principale - Caisse Auxiliaire USD *', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(195, 2, 1, 58511011, 'Virement des fonds Caisse Principale - Caisse Auxiliaire USD', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
 (196, 2, 1, 58511012, 'Virement des fonds Banque-Caisse Principale USD', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(197, 2, 1, 58511013, 'Virement des fonds Caisse Auxiliaire - Caisse Principale CDF', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(198, 2, 1, 58511014, 'Virement des fonds Caisse Principale - Caisse Auxiliaire CDF', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+(199, 2, 1, 58511015, 'Virement des fonds Banque-Caisse Principale CDF', 193, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
+
 
 -- CLASS 6 
 (200, 4, 1, 601, 'ACHATS DE MARCHANDISES', 47, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
@@ -254,8 +258,14 @@ INSERT INTO `account` (`id`, `type_id`, `enterprise_id`, `number`, `label`, `par
 (281, 3, 1, 81211010, 'Compte Immobilisations corporelles', 65, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL),
 (282, 3, 1, 81611010, 'Compte Immobilisations financières', 65, 0, NULL, NULL, '2016-10-23 17:05:34', NULL, NULL, NULL, NULL, 0, NULL)
 
--- handle duplicated label 
-ON DUPLICATE KEY UPDATE label = CONCAT(label, (@INC := @INC + 1)) 
-;
+-- handle duplicated label
+ON DUPLICATE KEY UPDATE label = CONCAT(label, (@INC := @INC + 1));
+
+INSERT INTO `cash_box_account_currency` (`id`, `currency_id`, `cash_box_id`, `account_id`, `transfer_account_id`) VALUES
+(1, 1, 1, 188, 197),
+(2, 2, 1, 191, 194),
+(3, 1, 2, 187, 198),
+(4, 2, 2, 190, 195);
+
 
 

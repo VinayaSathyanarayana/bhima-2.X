@@ -102,10 +102,8 @@ INSERT INTO `permission` (unit_id, user_id) VALUES (1,1), (4,1), (2,1);
 INSERT INTO `project_permission` VALUES (1,1,1),(2,1,2);
 
 -- enterprise cashboxes
-INSERT INTO `cash_box` (id, label, project_id, is_auxiliary) VALUES 
-  (1,'Principal Cashbox',1,0), 
-  (2,'First Auxiliary Cashbox',1,1), 
-  (3,'Second Auxiliary Cashbox',1,1);
+INSERT INTO `cash_box` (`id`, `label`, `project_id`, `is_auxiliary`) VALUES (1, 'Caisse Aux Hopital', 1, 1), (2, 'Caisse Princ Hopital CDF', 1, 0);
+
 
 -- inventory additional info
 INSERT INTO `inventory_type` VALUES (1,'Article'),(2,'Assembly'),(3,'Service');
