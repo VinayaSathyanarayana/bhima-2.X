@@ -90,7 +90,20 @@ INSERT INTO `user` VALUES
   (5, 'accountant', PASSWORD('accountant'), 'Accountant', NULL, 0, 0, NULL);
 
 -- super user permissions to admin user permissions
-INSERT INTO `permission` (unit_id, user_id) VALUES (1,1), (4,1), (2,1);
+INSERT INTO `permission` (unit_id, user_id) VALUES 
+(1,1), 
+(4,1), 
+(2,1),
+(3,1),
+(5,1),
+(9,1),
+(16,1), 
+(15,1),
+(12,1), 
+(14,1),
+(134,1),
+(137,1),
+(18, 1);
 
 -- super user permissions on projects
 INSERT INTO `project_permission` VALUES (1,1,1),(2,1,2);

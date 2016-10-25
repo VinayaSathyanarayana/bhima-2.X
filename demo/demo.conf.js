@@ -18,7 +18,8 @@ const config = {
 
   suites : {
     login : ['scripts/login.spec.js'],
-    patientRegistration : ['scripts/registerPatient.spec.js']
+    patientRegistration : ['scripts/registerPatient.spec.js'],
+    patientInvoice : ['scripts/invoicePatient.spec.js']
   },
 
   framework : 'mocha',

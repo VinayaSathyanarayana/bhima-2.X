@@ -5,7 +5,7 @@ var spawn = require('child_process').spawnSync;
 var moment = require('moment');
 var request = require('request');
 
-var seleniumSessionId = '3b0d24ab-9126-441a-a2d6-dd6f03aad167';
+var seleniumSessionId = '39fbb612-a8fb-4d90-b11d-3f2601682d32';
 var protractorPath = './../node_modules/.bin/protractor';
 var configPath = 'demo.conf.js'
 
@@ -40,18 +40,26 @@ function execProtractor(suite, params) {
   return deferred.promise;
 }
 
+// step through days performing day/ week/ month/ year tasks ignoring sundays
+function timeManager() {
+
+}
 
 // Patient Registrations
 // TODO Move to file
+var totalPatients = 20;
 var patientsList = require('./data/patients');
-
+patientsList = _.take(patientsList, totalPatients);
 console.log(patientsList);
 
 execProtractor('login')
-.then(() => registerPatients());
+.then(() => registerPatients())
+.then(() => {
+  execProtractor('patientInvoice')
+});
 
 function registerPatients() {
-  patientsList.reduce(function (current, next) {
+  return patientsList.reduce(function (current, next) {
     return current.then(function () {
 
       let datestring = currentDate.format('"MMM DD Y HH:mm:ss"');

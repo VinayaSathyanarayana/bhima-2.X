@@ -56,7 +56,7 @@ function PatientInvoicePage() {
     findPatient.findById(patientId);
 
     // set the date to the start of this year
-    dateEditor.set(new Date(date));
+    // dateEditor.set(new Date(date));
 
     // set a test description
     FU.input('PatientInvoiceCtrl.Invoice.details.description',note);
