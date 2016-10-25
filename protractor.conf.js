@@ -41,8 +41,8 @@ const config = {
     return q.fcall(function () {
       browser.get('http://localhost:8080/#/login');
 
-      element(by.model('LoginCtrl.credentials.username')).sendKeys('superuser');
-      element(by.model('LoginCtrl.credentials.password')).sendKeys('superuser');
+      element(by.model('LoginCtrl.credentials.username')).sendKeys('admin');
+      element(by.model('LoginCtrl.credentials.password')).sendKeys('admin');
       element(by.css('[data-method="submit"]')).click();
 
       // NOTE - you may need to play with the delay time to get this to work properly
