@@ -3,13 +3,7 @@ SET names 'utf8';
 SET character_set_database = 'utf8';
 SET collation_database = 'utf8_unicode_ci';
 
--- Fiscal Year 2016
-SET @fiscalYear2016 = 0;
-CALL CreateFiscalYear(1, NULL, 1, 'Test Fiscal Year 2016', 12, DATE('2016-01-01'), DATE('2016-12-31'), 'Note for 2016', @fiscalYear2016);
-
--- Fiscal Year 2017
-SET @fiscalYear2017 = 0;
-CALL CreateFiscalYear(1, @fiscalYear2016, 1, 'Test Fiscal Year 2017', 12, DATE('2017-01-01'), DATE('2017-12-31'), 'Note for 2017', @fiscalYear2017);
+USE bhima_production;
 
 -- units
 INSERT INTO unit VALUES
@@ -88,7 +82,7 @@ INSERT INTO `enterprise` VALUES (1,'Enterprise','ESE','243 81 00 00 000','info@e
 INSERT INTO `project` VALUES (1,'Hospital','HSP',1,NULL,0),(2,'Clinique','CLQ',1,NULL,0), (3,'Guest House','GHO',1,NULL,0);
 
 -- create super user
-INSERT INTO `user` VALUES 
+INSERT INTO `user` VALUES
   (1, 'admin', PASSWORD('admin'), 'Administrator', NULL, 0, 0, NULL),
   (2, 'receptionist', PASSWORD('receptionist'), 'Receptionist', NULL, 0, 0, NULL),
   (3, 'doctor', PASSWORD('doctor'), 'Doctor', NULL, 0, 0, NULL),
@@ -124,3 +118,15 @@ INSERT INTO `transaction_type` (`id`, `text`, `description`, `type`, `prefix`, `
   (8, 'VOUCHERS.SIMPLE.CASH_RETURN', 'Cash return transaction type', 'expense', 'PAYBACK', 1),
   (9, 'VOUCHERS.SIMPLE.PURCHASES', 'Purchase transaction type', 'expense', 'ACHAT', 1),
   (10,'VOUCHERS.SIMPLE.CREDIT_NOTE', 'Credit note transaction type', 'creditNote', 'CREDIT NOTE', 1);
+
+  -- Fiscal Year 2015
+  SET @fiscalYear2015 = 0;
+  CALL CreateFiscalYear(1, NULL, 1, 'Test Fiscal Year 2015', 12, DATE('2015-01-01'), DATE('2015-12-31'), 'Note for 2015', @fiscalYear2015);
+
+  -- Fiscal Year 2016
+  SET @fiscalYear2016 = 0;
+  CALL CreateFiscalYear(1, @fiscalYear2015, 1, 'Test Fiscal Year 2016', 12, DATE('2016-01-01'), DATE('2016-12-31'), 'Note for 2016', @fiscalYear2016);
+
+  -- Fiscal Year 2017
+  SET @fiscalYear2017 = 0;
+  CALL CreateFiscalYear(1, @fiscalYear2016, 1, 'Test Fiscal Year 2017', 12, DATE('2017-01-01'), DATE('2017-12-31'), 'Note for 2017', @fiscalYear2017);

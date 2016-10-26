@@ -49,6 +49,25 @@ function PatientInvoicePage() {
     FU.select('PatientInvoiceCtrl.Invoice.details.service_id', 'Administration');
   };
 
+  // sets a default patient, service, date, and note
+  page.details = function details(patientId, date, note) {
+
+    // set a patient with id
+    findPatient.findById(patientId);
+
+    // set the date to the start of this year
+    dateEditor.set(new Date(date));
+
+    // set a test description
+    FU.input('PatientInvoiceCtrl.Invoice.details.description',note);
+
+    // set this invoice to be distributable
+    btns.distributable.click();
+
+    // select the first enabled service in the list
+    FU.select('PatientInvoiceCtrl.Invoice.details.service_id', 'Administration');
+  };
+
   // try to click the submit button
   page.submit = function submit() {
     btns.submit.click();
